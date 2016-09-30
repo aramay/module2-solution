@@ -25,18 +25,30 @@
 
     app.controller('ShoppingListCheckOffController', ShoppingListCheckOffController);
 
-    ShoppingListCheckOffController.$inject = ['$scope'];
+    app.service('ShoppingListService', ShoppingListService);
 
-    function ShoppingListCheckOffController($scope) {
+    ShoppingListCheckOffController.$inject = ['ShoppingListService'];
 
-        $scope.toBuyList = toBuyList;
-        console.log($scope.toBuyList);
+    function ShoppingListCheckOffController(ShoppingListService) {
 
-        $scope.removeItem = function () {
+        var checkOffList = this;
+
+        checkOffList.toBuyList = toBuyList;
+        console.log(checkOffList.toBuyList);
+
+        checkOffList.removeItem = function () {
 
 
 
         };
+    }
+
+    function ShoppingListService() {
+
+        var service = this;
+
+        var items = [];
+
     }
 
 }) ();
