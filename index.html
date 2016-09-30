@@ -1,9 +1,15 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Shopping List Check Off</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles/bootstrap.min.css">
+
+      <meta charset="utf-8">
+      <title>Shopping List Check Off</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="styles/bootstrap.min.css">
+      
+      <script src="angular.min.js"></script>
+      <script src="app.js"></script>
+
     <style>
       .emptyMessage {
         font-weight: bold;
@@ -22,18 +28,21 @@
       }
     </style>
   </head>
-<body>
+
+<body ng-app="ShoppingList">
+
   <div class="container">
   <h1>Shopping List Check Off</h1>
 
   <div class="row">
 
     <!-- To Buy List -->
-    <div class="col-md-6">
+    <div ng-controller="ShoppingListCheckOffController" class="col-md-6">
      <h2>To Buy:</h2>
      <ul>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
-       <li>Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+       <li ng-repeat="item in toBuyList">Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button>
+       </li>{{item}}
+
      </ul>
      <div class="emptyMessage">Everything is bought!</div>
     </div>
