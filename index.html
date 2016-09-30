@@ -6,7 +6,7 @@
       <title>Shopping List Check Off</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" href="styles/bootstrap.min.css">
-      
+
       <script src="angular.min.js"></script>
       <script src="app.js"></script>
 
@@ -37,11 +37,14 @@
   <div class="row">
 
     <!-- To Buy List -->
-    <div ng-controller="ShoppingListCheckOffController" class="col-md-6">
+    <div ng-controller="ShoppingListCheckOffController as checkOffList" class="col-md-6">
      <h2>To Buy:</h2>
      <ul>
-       <li ng-repeat="item in toBuyList">Buy 10 cookies <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button>
-       </li>{{item}}
+       <li ng-repeat="item in checkOffList.toBuyList">{{item.quantity}} of {{item.name}} <button class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> Bought</button>
+
+       </li>
+
+
 
      </ul>
      <div class="emptyMessage">Everything is bought!</div>
