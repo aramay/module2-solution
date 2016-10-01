@@ -50,7 +50,7 @@
 
 
      </ul>
-     <div class="emptyMessage">Everything is bought!</div>
+     <div ng-hide="checkOffList.toBuyList.length == 0" class="emptyMessage">Everything is bought!</div>
     </div>
 
     <!-- Already Bought List -->
@@ -61,7 +61,7 @@
            {{item.quantity}} of {{item.name}}
        </li>
      </ul>
-     <div class="emptyMessage">Nothing bought yet.</div>
+     <div ng-show="bought.boughtItems.length == 0" class="emptyMessage">Nothing bought yet.</div>
     </div>
   </div>
 </div>

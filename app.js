@@ -2,29 +2,6 @@
 
     'use strict';
 
-    var toBuyList = [
-      {
-        name: "Milk",
-        quantity: "2"
-      },
-      {
-        name: "Donuts",
-        quantity: "200"
-      },
-      {
-        name: "Cookies",
-        quantity: "300"
-      },
-      {
-        name: "Chocolate",
-        quantity: "5"
-    },
-      {
-        name: "Oranges",
-        quantity: "12"
-      }
-    ];
-
     var app = angular.module('ShoppingList', []);
 
     app.controller('ShoppingListCheckOffController', ShoppingListCheckOffController);
@@ -49,11 +26,6 @@
 
         };
 
-        // checkOffList.displayItems = function () {
-        //
-        //     ShoppingListCheckOff.getItems();
-        //
-        // };
     }
 
     ShoppingListBoughtController.$inject = ['ShoppingListService'];
@@ -64,19 +36,37 @@
 
         bought.boughtItems = ShoppingListService.getBoughtItems();
 
-        console.log("bought items controller", bought.boughtItems);
-
-
+        console.log("bought items controller", bought.boughtItems); 
 
     }
 
-    app.service('ShoppingListService', ShoppingListService);
-
     function ShoppingListService() {
+
+        var toBuyList = [
+          {
+            name: "Milk",
+            quantity: "2"
+          },
+          {
+            name: "Donuts",
+            quantity: "200"
+          },
+          {
+            name: "Cookies",
+            quantity: "300"
+          },
+          {
+            name: "Chocolate",
+            quantity: "5"
+           },
+          {
+            name: "Oranges",
+            quantity: "12"
+          }
+        ];
 
         var service = this;
 
-        // var items = [];
         var items = toBuyList;
 
         var boughtItems = [];
@@ -87,12 +77,11 @@
 
             temp = items.splice(index, 1);
 
-            // boughtItems.push(temp);
             boughtItems.push(temp.pop());
 
-            console.log("bought items", boughtItems);
-
-            console.log("temp items", temp);
+            // console.log("bought items", boughtItems);
+            //
+            // console.log("temp items", temp);
 
         };
 
